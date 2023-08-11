@@ -1,13 +1,38 @@
 const http = require("http");
-const products = require("./utils/productData");
+const {
+  getProducts,
+  getProductById,
+  createProduct,
+  updateProduct,
+  deleteProduct,
+} = require("./controllers/productController");
 
 const server = http.createServer((request, response) => {
-  if (request.method === "GET" && request.url === "/api/products") {
-    response.writeHead(200, { "Content-Type": "application/json" });
-    response.end(JSON.stringify(products)); //send data
+  if (request.url === "/api/products" && request.method === "GET") {
+    getProducts(request, response);
+  } else if (
+    request.url.match(/\/api\/products\/([0-9]+)/) &&
+    request.method === "GET"
+  ) {
+    const id = request.url.split("/").pop();
+    getProductById(request, response, id);
+  } else if (request.url === "/api/products" && request.method === "POST") {
+    createProduct(request, response);
+  } else if (
+    request.url.match(/\/api\/products\/([0-9]+)/) &&
+    request.method === "PUT"
+  ) {
+    const id = request.url.split("/").pop();
+    updateProduct(request, response, id);
+  } else if (
+    request.url.match(/\/api\/products\/([0-9]+)/) &&
+    request.method === "DELETE"
+  ) {
+    const id = request.url.split("/").pop();
+    deleteProduct(request, response, id);
   } else {
     response.writeHead(404, { "Content-Type": "application/json" });
-    response.end(JSON.stringify({ message: "Data Not found" }));
+    response.end(JSON.stringify({ message: "Data not found" }));
   }
 });
 
