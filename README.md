@@ -12,7 +12,7 @@ This includes REST APIs for CRUD operations using Node Js (without framework) wh
 - Add [uuid](https://www.npmjs.com/package/uuid) for unique id - ```npm install uuid```
 - Run ```npm start```
 
-##### API Usage
+#### API Usage
 ---
 
 Use [Postman](https://www.postman.com/) to view/use these APIs
