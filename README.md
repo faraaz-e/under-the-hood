@@ -17,8 +17,8 @@ This includes REST APIs for CRUD operations using Node Js (without framework) wh
 
 Use [Postman](https://www.postman.com/) to view/use these APIs
 
-- GET Request    : ***/api/products*** (get all Products) 
-- GET Request    : ***/api/products/:id*** (get product by Id)
-- POST Request   : ***/api/products*** (create a new product) 
-- PUT Request    : ***/api/products/:id*** (update a product)
-- DELETE Request : ***/api/products/:id*** (delete product with id)
+- GET Request    : ***/api/v1/products*** (get all Products) 
+- GET Request    : ***/api/v1/products/:id*** (get product by Id)
+- POST Request   : ***/api/v1/products*** (create a new product) 
+- PUT Request    : ***/api/v1/products/:id*** (update a product)
+- DELETE Request : ***/api/v1/products/:id*** (delete product with id)
